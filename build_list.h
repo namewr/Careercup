@@ -38,10 +38,8 @@ list_func(int)
 	return head;
 }
 
-#define build_list(type, args...)\
-do{\
-	list_func(type, ##args);\
-}while(0)
+#define build_list(type, head, num, args...)\
+		build_list_##type(head, num, ##args)
 
 void int_list_trav(struct int_list* head, void func(struct int_list*))
 {
